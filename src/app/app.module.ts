@@ -4,16 +4,28 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {SheetsService} from './services/sheets.service';
 import {HttpModule} from '@angular/http';
+import {LoginService} from './services/login.service';
+import {SheetPermitService} from './services/sheet-permit.service';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { LoginComponent } from './components/login/login.component';
+import {RoutingModule} from './app.routing';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    RoutingModule
   ],
-  providers: [SheetsService],
+  providers: [
+    SheetsService,
+    LoginService,
+    SheetPermitService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
