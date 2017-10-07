@@ -9,6 +9,7 @@ import {SheetPermitService} from './services/sheet-permit.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import {RoutingModule} from './app.routing';
+import {GuardsService} from './services/guards.service';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {RoutingModule} from './app.routing';
     SheetsService,
     LoginService,
     SheetPermitService,
+    GuardsService
   ],
   bootstrap: [AppComponent]
 })
