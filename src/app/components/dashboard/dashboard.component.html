@@ -1,3 +1,11 @@
-<a href="https://docs.google.com/spreadsheets/d/1mK2zvp6ouN5r7kh0StqkULr32l9MyO0suBpMJUL4QeM/edit?usp=sharing" target="_blank">
-  open sheet</a>
-<button (click)="getData()">updateAll</button><br>
+<section fxLayout="row" fxLayoutAlign="center center" fxLayoutWrap="wrap">
+  <iframe
+    src="https://docs.google.com/spreadsheets/d/1mK2zvp6ouN5r7kh0StqkULr32l9MyO0suBpMJUL4QeM/edit#gid=40002039">
+  </iframe>
+    <a href="https://docs.google.com/spreadsheets/d/1mK2zvp6ouN5r7kh0StqkULr32l9MyO0suBpMJUL4QeM/edit?usp=sharing"
+       target="_blank" style="text-decoration: none">
+      <button class="btn btn-info">open sheet</button>
+    </a>
+  <button type="button" class="btn btn-danger" (click)="getData()">updateAll</button>
+  <br>
+</section>

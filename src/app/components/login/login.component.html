@@ -1,4 +1,18 @@
-<input #username placeholder="email" type="email">
-<input #password placeholder="password" type="password">
-<button (click)="login(username.value,password.value)">login</button>
-<button (click)="Login.signout()">Signout</button>
+<section fxLayout="column" fxLayoutAlign="center center">
+  <div class="main" fxLayoutAlign="center center" fxLayoutWrap="wrap">
+    <h1>Turbo</h1>
+    <div class="grp" fxLayoutWrap="wrap">
+      <div class="input-group">
+        <input #username type="text" class="form-control" placeholder="Username"
+               aria-describedby="basic-addon2">
+        <span class="input-group-addon" id="basic-addon2">@iitkms.com</span>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"> # </span>
+        <input #password type="password" class="form-control" placeholder="password" aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <button (click)="login(username.value+'@iitkms.com',password.value)" class="btn btn-success">login</button>
+    <!--<button (click)="Login.signout()">Signout</button>-->
+  </div>
+</section>

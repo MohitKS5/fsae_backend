@@ -10,6 +10,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import {RoutingModule} from './app.routing';
 import {GuardsService} from './services/guards.service';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {GuardsService} from './services/guards.service';
   imports: [
     BrowserModule,
     HttpModule,
-    RoutingModule
+    RoutingModule,
+    FlexLayoutModule,
   ],
   providers: [
     SheetsService,
