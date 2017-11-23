@@ -144,9 +144,9 @@
   dependencies:
     tsickle "^0.21.0"
 
-"@firebase/webchannel-wrapper@^0.2.1":
+"@firebase.ts/webchannel-wrapper@^0.2.1":
   version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.2.1.tgz#2c4dbc15edd1de4f656d543a6f512ded7978ef72"
+  resolved "https://registry.yarnpkg.com/@firebase.ts/webchannel-wrapper/-/webchannel-wrapper-0.2.1.tgz#2c4dbc15edd1de4f656d543a6f512ded7978ef72"
 
 "@ngtools/json-schema@1.1.0":
   version "1.1.0"
@@ -1795,11 +1795,11 @@ find-up@^1.0.0:
     path-exists "^2.0.0"
     pinkie-promise "^2.0.0"
 
-firebase@^4.5.0:
+firebase.ts@^4.5.0:
   version "4.5.0"
-  resolved "https://registry.yarnpkg.com/firebase/-/firebase-4.5.0.tgz#e0973a9803b74c4c9d73d19f874712e6e9d16ba7"
+  resolved "https://registry.yarnpkg.com/firebase.ts/-/firebase.ts-4.5.0.tgz#e0973a9803b74c4c9d73d19f874712e6e9d16ba7"
   dependencies:
-    "@firebase/webchannel-wrapper" "^0.2.1"
+    "@firebase.ts/webchannel-wrapper" "^0.2.1"
     dom-storage "^2.0.2"
     faye-websocket "0.9.3"
     jsonwebtoken "^7.3.0"

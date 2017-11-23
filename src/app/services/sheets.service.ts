@@ -1,22 +1,17 @@
 import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
+import {config, googleSheetsUrl} from '../config/firebase';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import * as firebase from 'firebase';
 import 'rxjs/add/observable/fromPromise';
 
-const config = {
-  apiKey: 'AIzaSyCecl2pYkNiex4HBnyn-2UH_-r3BipdtqU',
-  authDomain: 'turbo-iitkms.firebaseapp.com',
-  databaseURL: 'https://turbo-iitkms.firebaseio.com/',
-  storageBucket: 'gs://turbo-iitkms.appspot.com'
-};
+
 firebase.initializeApp(config);
 
 @Injectable()
 export class SheetsService {
-  public googleSheetsUrl = '1mK2zvp6ouN5r7kh0StqkULr32l9MyO0suBpMJUL4QeM';
 
   constructor(private http: Http) {
   }
@@ -31,7 +26,7 @@ export class SheetsService {
 
   getJsonData(unique_identifier): Observable<any> {
     const sheetUrl = 'https://spreadsheets.google.com/feeds/list/' +
-      this.googleSheetsUrl +
+      googleSheetsUrl +
       '/' + unique_identifier +
       '/public/values?alt=json';
     return this.http.get(sheetUrl)

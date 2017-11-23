@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SheetsService} from '../../services/sheets.service';
+import {LoginService} from '../../services/login.service';
+import {Router} from '@angular/router';
+import {sheetpages} from '../../config/firebase';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,8 +11,11 @@ import {SheetsService} from '../../services/sheets.service';
 })
 export class DashboardComponent implements OnInit {
   public sheet;
-  public unique_identifier = [1, 2, 3, 4, 5, 6];
-  constructor(private data: SheetsService) { }
+  public unique_identifier = sheetpages;
+
+  constructor(private data: SheetsService, public Login: LoginService, private router: Router) {
+  }
+
   getData() {
     for (let v in this.unique_identifier) {
       this.data.getSheetsData(v.toString())
@@ -20,6 +26,12 @@ export class DashboardComponent implements OnInit {
           }
         );
     }
+    alert('done');
+  }
+
+  Signout() {
+    this.Login.signout();
+    this.router.navigate(['/login']);
   }
 
   ngOnInit() {

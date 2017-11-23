@@ -9,7 +9,8 @@
       </div>
       <div class="input-group">
         <span class="input-group-addon" id="basic-addon1"> # </span>
-        <input #password type="password" class="form-control" placeholder="password" aria-describedby="basic-addon1">
+        <input #password type="password" class="form-control" placeholder="password" aria-describedby="basic-addon1"
+               (keyup.enter)="login(username.value+'@iitkms.com',password.value)">
       </div>
     </div>
     <button (click)="login(username.value+'@iitkms.com',password.value)" class="btn btn-success">login</button>
