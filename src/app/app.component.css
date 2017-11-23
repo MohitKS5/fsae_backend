@@ -2,7 +2,7 @@
   width: 100vw;
   height: 100vh;
   position: fixed;
-  background: url("/assets/backg.webp") fixed;
+  /*background: url("/assets/backg.webp") fixed;*/
   background-size: cover;
   display: block;
   top: 0;

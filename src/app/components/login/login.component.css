@@ -1,14 +1,15 @@
 section{
   height: 100vh;
 }
+
 .main{
   border-radius: 5px;
   background-color: transparent;
   width: 40vw;
   padding: 7vw;
+  font-size: 30px;
+  line-height: 1.5;
 }
-
-
 
 button:hover{
   cursor: pointer;
