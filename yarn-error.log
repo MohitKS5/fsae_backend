@@ -28,7 +28,8 @@ npm manifest:
     },
     "private": true,
     "dependencies": {
-      "@angular/animations": "^4.0.0",
+      "@angular/animations": "^3.0.0",
+      "@angular/cdk": "^2.0.0-beta.12",
       "@angular/common": "^4.0.0",
       "@angular/compiler": "^4.0.0",
       "@angular/core": "^4.0.0",
@@ -77,15 +78,15 @@ Lockfile:
   # yarn lockfile v1
   
   
-  "@angular/animations@^4.0.0":
-    version "4.4.3"
-    resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-4.4.3.tgz#396c4a5bfb22847f9e458245ba995f9c130c0cf3"
+  "@angular/animations@^5.0.3":
+    version "5.0.3"
+    resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-5.0.3.tgz#f08b07007b149fa12679c346fa55820f544b19e0"
     dependencies:
       tslib "^1.7.1"
   
-  "@angular/cdk@^5.0.0-rc.1":
-    version "5.0.0-rc.1"
-    resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-5.0.0-rc.1.tgz#7d6d937fea50074962db8ce02664b164401d197d"
+  "@angular/cdk@^2.0.0-beta.12":
+    version "2.0.0-beta.12"
+    resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-2.0.0-beta.12.tgz#3a243cb62b93f4e039120ba70f900dc9e235622e"
     dependencies:
       tslib "^1.7.1"
   
@@ -201,9 +202,9 @@ Lockfile:
     version "4.4.3"
     resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-4.4.3.tgz#4527011a594967a396eff3c05ed15bd4c86d51b7"
   
-  "@angular/material@^5.0.0-rc.1":
-    version "5.0.0-rc.1"
-    resolved "https://registry.yarnpkg.com/@angular/material/-/material-5.0.0-rc.1.tgz#63456b7568c102b6bb7983a2837cc317350fe270"
+  "@angular/material@^2.0.0-alpha.11-3":
+    version "2.0.0-beta.12"
+    resolved "https://registry.yarnpkg.com/@angular/material/-/material-2.0.0-beta.12.tgz#71b6d0b7b021891e5d0e3688c1d4bd78c7457f58"
     dependencies:
       tslib "^1.7.1"
   
@@ -5558,8 +5559,9 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.17.tgz#4c5e5185a857da8da793daf3919371c5a36b2a0b"
 
 Trace: 
-  Error: self signed certificate in certificate chain
-      at TLSSocket.<anonymous> (_tls_wrap.js:1103:38)
+  Error: Hostname/IP doesn't match certificate's altnames: "Host: registry.yarnpkg.com. is not in the cert's altnames: DNS:gateway.iitk.ac.in"
+      at Object.checkServerIdentity (tls.js:222:17)
+      at TLSSocket.<anonymous> (_tls_wrap.js:1109:29)
       at emitNone (events.js:106:13)
       at TLSSocket.emit (events.js:208:7)
       at TLSSocket._finishInit (_tls_wrap.js:637:8)

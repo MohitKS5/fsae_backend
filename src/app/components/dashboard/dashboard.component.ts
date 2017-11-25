@@ -3,6 +3,8 @@ import {SheetsService} from '../../services/sheets.service';
 import {LoginService} from '../../services/login.service';
 import {Router} from '@angular/router';
 import {sheetpages} from '../../config/firebase';
+import {MatDialog} from '@angular/material';
+import {EmptyDialogComponent} from '../dialogs/empty-dialog/empty-dialog.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +15,7 @@ export class DashboardComponent implements OnInit {
   public sheet;
   public unique_identifier = sheetpages;
 
-  constructor(private data: SheetsService, public Login: LoginService, private router: Router) {
+  constructor(private data: SheetsService, public Login: LoginService, private router: Router, private dialog: MatDialog) {
   }
 
   getData() {
@@ -26,7 +28,9 @@ export class DashboardComponent implements OnInit {
           }
         );
     }
-    alert('done');
+    this.dialog.open(EmptyDialogComponent,{
+      data: {msg: 'The Changes have been made to main website'}
+    })
   }
 
   Signout() {

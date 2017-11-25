@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
       .catch((err) => {
         console.log('wtf');
         this.dialog.open(EmptyDialogComponent, {
-          data: {error: err}
+          data: {msg: err}
         })
       });
   }
