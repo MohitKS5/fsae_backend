@@ -20,11 +20,11 @@ export class DashboardComponent implements OnInit {
 
   getData() {
     for (let v in this.unique_identifier) {
-      this.data.getSheetsData(v.toString())
+      this.data.getSheetsData(this.unique_identifier[+v].toString())
         .subscribe(
           res => {
             this.sheet = res;
-            this.data.testin(res, v);
+            // this.data.testin(res, v);
           }
         );
     }

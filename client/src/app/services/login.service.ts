@@ -1,9 +1,12 @@
 import {Injectable} from '@angular/core';
 import * as firebase from 'firebase';
+import {MatDialog} from '@angular/material';
+import {EmptyDialogComponent} from '../components/dialogs/empty-dialog/empty-dialog.component';
+import {SheetsService} from './sheets.service';
 
 @Injectable()
 export class LoginService {
-  public _user: boolean = false;
+  private provider = new firebase.auth.GoogleAuthProvider();
 
   public login(email, password): Promise<1 | 0> {
     return firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
@@ -22,7 +25,7 @@ export class LoginService {
   }
 
   public checklog = (): Promise<1 | 0> => {
-    console.log(firebase.auth().currentUser+' hell');
+    console.log(firebase.auth().currentUser + ' hell');
     if (firebase.auth().currentUser) {
       return Promise.resolve(1);
     } else {
@@ -30,11 +33,26 @@ export class LoginService {
     }
   };
 
+  public google_signin() {
+    return firebase.auth().signInWithPopup(this.provider).then(function (res) {
+      const token = res.credential.accessToken;
+      const users = res.user.toString();
+      console.log('hellow');
+      // this.Sheet.testin('hell',10);
+    }).catch(()=>function (err) {
+      this.dialog.open(EmptyDialogComponent, {
+        msg: err
+      });
+    })
+  }
+
   public signout() {
     firebase.auth().signOut();
   }
 
-  constructor() {
+  constructor(private dialog: MatDialog, private Sheet: SheetsService) {
+    this.provider.addScope('https://www.googleapis.com/auth/spreadsheets');
+    this.provider.setCustomParameters({});
   }
 
 }

@@ -16,7 +16,7 @@ export class SheetsService {
   constructor(private http: Http) {
   }
 
-  getfromfirebase(sheet: number): Observable<any> {
+  getsheetfromfirebase(sheet: number): Observable<any> {
     let _data;
     return Observable.fromPromise(firebase.database().ref('/data/' + sheet).once('value')
       .then(function (snapshot) {
@@ -24,18 +24,37 @@ export class SheetsService {
       }));
   }
 
+  getfromfirebase(path: string): Observable<any> {
+    let _data;
+    return Observable.fromPromise(firebase.database().ref(path).once('value')
+      .then(function (snapshot) {
+        return JSON.parse(snapshot.val())
+      }));
+  }
+
   getJsonData(unique_identifier): Observable<any> {
+    console.log(unique_identifier);
     const sheetUrl = 'https://spreadsheets.google.com/feeds/list/' +
       googleSheetsUrl +
       '/' + unique_identifier +
       '/public/values?alt=json';
     return this.http.get(sheetUrl)
-      .map((res) => res.json().feed.entry)
+      .map((res) => {
+      console.log(res.json().feed.entry);
+      return res.json().feed.entry;
+      })
       .catch(SheetsService.handleError);
   }
+
   testin(body, sheet) {
     firebase.database().ref('data/' + sheet).set({
       content : body
+    })
+      .then(function(){
+      console.log('saved to firebase');
+    })
+      .catch(function(err){
+      console.log(err+'what the fuck')
     });
   }
   getSheetsData(unique_identifier, parser?): Observable<any> {

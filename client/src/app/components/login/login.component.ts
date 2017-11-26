@@ -10,7 +10,7 @@ import {EmptyDialogComponent} from '../dialogs/empty-dialog/empty-dialog.compone
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(public Login: LoginService, private router: Router, private dialog: MatDialog) {
+  constructor(private Login: LoginService, private router: Router, private dialog: MatDialog) {
   }
 
   login(username, password) {
@@ -21,11 +21,14 @@ export class LoginComponent implements OnInit {
         }
       })
       .catch((err) => {
-        console.log('wtf');
         this.dialog.open(EmptyDialogComponent, {
           data: {msg: err}
         })
       });
+  }
+
+  google(){
+    this.Login.google_signin();
   }
 
   ngOnInit() {
