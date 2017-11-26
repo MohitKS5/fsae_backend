@@ -15,14 +15,14 @@ export class SheetsService {
 
   constructor(private http: Http) {
   }
-
-  getsheetfromfirebase(sheet: number): Observable<any> {
-    let _data;
-    return Observable.fromPromise(firebase.database().ref('/data/' + sheet).once('value')
-      .then(function (snapshot) {
-        return JSON.parse(snapshot.val().content).feed.entry;
-      }));
-  }
+  //
+  // getsheetfromfirebase(sheet: number): Observable<any> {
+  //   let _data;
+  //   return Observable.fromPromise(firebase.database().ref('/data/' + sheet).once('value')
+  //     .then(function (snapshot) {
+  //       return JSON.parse(snapshot.val().content).feed.entry;
+  //     }));
+  // }
 
   getfromfirebase(path: string): Observable<any> {
     let _data;
@@ -52,7 +52,7 @@ export class SheetsService {
       console.log('saved to firebase');
     })
       .catch(function(err){
-      console.log(err+'what the fuck')
+      console.log(err)
     });
   }
 

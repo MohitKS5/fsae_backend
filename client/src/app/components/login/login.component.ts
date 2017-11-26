@@ -27,8 +27,11 @@ export class LoginComponent implements OnInit {
       });
   }
 
-  google(){
-    this.Login.google_signin();
+  google() {
+    this.Login.google_signin()
+      .then(() => {
+          this.router.navigate(['/dashboard'])
+      });
   }
 
   ngOnInit() {

@@ -9,7 +9,7 @@ export class LoginService {
   private provider = new firebase.auth.GoogleAuthProvider();
 
   public login(email, password): Promise<1 | 0> {
-    return firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+    return firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
       .then(function () {
         return firebase.auth().signInWithEmailAndPassword(email, password)
           .then(
@@ -42,11 +42,9 @@ export class LoginService {
           token: token,
           user: users
         };
-        console.log('hell');
         return info;
       }).then((info) => {
-        console.log('hellow');
-        this.Sheet.testin(info, 'current_session/');
+        // this.Sheet.testin(info, 'current_session/');     uncomment this line to save current session in firebase
       })
       .catch(() => function (err) {
         this.dialog.open(EmptyDialogComponent, {
@@ -61,7 +59,9 @@ export class LoginService {
 
   constructor(private dialog: MatDialog, private Sheet: SheetsService) {
     this.provider.addScope('https://www.googleapis.com/auth/spreadsheets');
-    this.provider.setCustomParameters({});
+    this.provider.setCustomParameters({
+      'login_hint': 'pr.iitkms@gmail.com'
+    });
   }
 
 }
