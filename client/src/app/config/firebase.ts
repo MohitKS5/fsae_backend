@@ -6,4 +6,4 @@ export const config = {
 };
 
 export const googleSheetsUrl = '1mK2zvp6ouN5r7kh0StqkULr32l9MyO0suBpMJUL4QeM';
-export const sheetpages = [1,2,3,4,5,6];
+export const sheetpages = [1,2,3,4,5,6,7];

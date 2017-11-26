@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
         .subscribe(
           res => {
             this.sheet = res;
-            // this.data.testin(res, v);
+            this.data.testin(res, 'data/' + this.unique_identifier[+v].toString());
           }
         );
     }
@@ -40,5 +40,4 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

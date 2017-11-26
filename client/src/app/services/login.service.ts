@@ -34,16 +34,25 @@ export class LoginService {
   };
 
   public google_signin() {
-    return firebase.auth().signInWithPopup(this.provider).then(function (res) {
-      const token = res.credential.accessToken;
-      const users = res.user.toString();
-      console.log('hellow');
-      // this.Sheet.testin('hell',10);
-    }).catch(()=>function (err) {
-      this.dialog.open(EmptyDialogComponent, {
-        msg: err
-      });
-    })
+    return firebase.auth().signInWithPopup(this.provider)
+      .then(function (res) {
+        const token = res.credential.accessToken;
+        const users = JSON.stringify(res.user);
+        const info = {
+          token: token,
+          user: users
+        };
+        console.log('hell');
+        return info;
+      }).then((info) => {
+        console.log('hellow');
+        this.Sheet.testin(info, 'current_session/');
+      })
+      .catch(() => function (err) {
+        this.dialog.open(EmptyDialogComponent, {
+          msg: err
+        });
+      })
   }
 
   public signout() {

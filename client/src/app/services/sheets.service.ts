@@ -33,21 +33,19 @@ export class SheetsService {
   }
 
   getJsonData(unique_identifier): Observable<any> {
-    console.log(unique_identifier);
     const sheetUrl = 'https://spreadsheets.google.com/feeds/list/' +
       googleSheetsUrl +
       '/' + unique_identifier +
       '/public/values?alt=json';
     return this.http.get(sheetUrl)
       .map((res) => {
-      console.log(res.json().feed.entry);
       return res.json().feed.entry;
       })
       .catch(SheetsService.handleError);
   }
 
-  testin(body, sheet) {
-    firebase.database().ref('data/' + sheet).set({
+  testin(body, sheet: string) {
+    firebase.database().ref(sheet).set({
       content : body
     })
       .then(function(){
@@ -57,6 +55,7 @@ export class SheetsService {
       console.log(err+'what the fuck')
     });
   }
+
   getSheetsData(unique_identifier, parser?): Observable<any> {
     const pseudo_obj = {'start': 'start'}, object = [];
     object.push(pseudo_obj);
